@@ -9,8 +9,8 @@
 
 
 # potencia=int(input("insira a potência da lampada:"))
-# largura=int(input("insira largura desejada em metros:"))
-# comprimento=int(input("insira o comprimento desejado em metros:"))
+# largura=float(input("insira largura desejada em metros:"))
+# comprimento=float(input("insira o comprimento desejado em metros:"))
 
 # area= largura*comprimento
 # resto=area%potencia
@@ -41,7 +41,7 @@
 
 # area=paredes+parede_lado+chao_e_teto
 # resto=area%azulejo
-# caixas=area/azulejo
+# caixas=int(area/azulejo)
 # match resto:
 #     case 0:
 #         print(f'você precisará de: {caixas} caixas')
@@ -72,7 +72,7 @@
 # media= odometro/consumo_gasolina
 
 # if valor_gasto < dinheiro:
-#     print (f"Você teve prejuízo de: {lucro} e sua média é {media}")
+#     print (f"Você teve prejuízo de:\n {lucro} e sua média é {media}")
 # elif valor_gasto == 0:
 #     print(f"Você não teve gasto, pois seu total de lucro foi {lucro} e sua média é {media}")
 
