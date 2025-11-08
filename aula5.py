@@ -19,51 +19,57 @@
 # (Aprovado/Reprovado/Recuperação) que você fez na Aula 4, agora 
 # para 10 estudantes.
 
-# for i in range(10):
-#     print(f'Numero {i+1} de 10')
+resultadofinal=[]
+for i in range(5):
+    print(f'Numero {i+1} de 10')
 
-#     try:
-#         print('Bem vindo à calculadora de notas! Primeiro, digite suas duas primeiras notas')
+    try:
+        print('Bem vindo à calculadora de notas! Primeiro, digite suas duas primeiras notas')
 
-#         notaum=float(input('Digite a sua primeira nota:  '))
+        notaum=float(input('Digite a sua primeira nota:  '))
 
-#         n_2=float(input('Digite a sua segunda nota:  '))
+        n_2=float(input('Digite a sua segunda nota:  '))
     
 
-#         media= float((notaum+n_2)/2)
+        media= float((notaum+n_2)/2)
     
 
-#         if media >=6.0:
-#             print('PARABÉNS! VOCÊ ESTÁ APROVADO!!')
+        if media >=6.0:
+            print('PARABÉNS! VOCÊ ESTÁ APROVADO!!')
         
-#         elif media<3.0:
-#             print(f'Sinto muito, você está reprovado. Sua média é {media}')
-#         else:
-#             nota3=float(input('Vejo que você ficou de recuperação, por favor, digite a sua terceira nota. Caso não tenha feito, digite -1: '))
-#             if nota3 ==-1:
-#                 print(f'Sinto muito, você está reprovado. Sua nota é: {media}')
-#             else:
+        elif media<3.0:
+            print(f'Sinto muito, você está reprovado. Sua média é {media}')
+        else:
+            nota3=float(input('Vejo que você ficou de recuperação, por favor, digite a sua terceira nota. Caso não tenha feito, digite -1: '))
+            if nota3 ==-1:
+                print(f'Sinto muito, você está reprovado. Sua nota é: {media}')
+            else:
 
-#                 if nota3 > notaum or nota3>n_2 and notaum > n_2:
-#                         final1=float((nota3+notaum)/2)
-#                         if final1>=6.0:
-#                                 print(f'Parabéns, você está aprovado" Sua nota final é {final1}')
-#                         else:
-#                                 print('Sinto muito, você está reprovado')
-#                 elif nota3 > n_2 or nota3 > notaum and n_2 > notaum:
+                if nota3 > notaum or nota3>n_2 and notaum > n_2:
+                        situacao=float((nota3+notaum)/2)
+                        if situacao>=6.0:
+                                print(f'Parabéns, você está aprovado" Sua nota final é {situacao}')
+                        else:
+                                print('Sinto muito, você está reprovado')
+                elif nota3 > n_2 or nota3 > notaum and n_2 > notaum:
                     
-#                     final=float((nota3+n_2)/2)
-#                     if final>=6.0:
-#                         print (f'Parabéns, você está aprovado! Sua nota final é {final}')
-#                     else:
-#                         print(f'Sinto muito, você está reprovado, sua nota final é {final}')
-#                 elif n_2==notaum and nota3>notaum or nota3>n_2:
-#                     finaldois=float((nota3+notaum)/2)
-#                     print(f'sua nota final é {finaldois}')
-#                 else:
-#                     print(f'Sua média final é {media}')
-#     except ValueError:
-#      print('Digite um número para calcular')
+                    situacao=float((nota3+n_2)/2)
+                    if final>=6.0:
+                        print (f'Parabéns, você está aprovado! Sua nota final é {situacao}')
+                    else:
+                        print(f'Sinto muito, você está reprovado, sua nota final é {situacao}')
+                elif n_2==notaum and nota3>notaum or nota3>n_2:
+                    situacao=float((nota3+notaum)/2)
+                    print(f'sua nota final é {situacao}')
+                else:
+                    print(f'Sua média final é {media}')
+        
+        resultadofinal=resultadofinal.append(situacao)
+
+    except ValueError:
+     print('Digite um número para calcular')
+
+print(f'resultado final: {resultadofinal}')
 
 ## EXERCÍCIO 2
 
