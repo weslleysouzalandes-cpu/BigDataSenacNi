@@ -150,20 +150,20 @@ final=e_bissexto(pergunta)
 
 ## EXERCICIO 2 CONTAGEM DE CARACTERES  ##
 
-# def contar_caracteres(x,y):
-#     minha_string = x
-#     minuscula= minha_string.lower()
+def contar_caracteres(x,y):
+    minha_string = x
+    minuscula= minha_string.lower()
 
-#     resultado = print(f"A lestra {y} se repete {minuscula.count(y)} vezes")
+    resultado = print(f"A letra {y} se repete {minuscula.count(y)} vezes")
 
-#     return resultado
+    return resultado
 
 
-# print(" Vamos contar as letrinhas?? ")
-# texto=str(input("\n Digite o eu texto:  "))
-# caractere_proc= str(input("Digite a letra procurada:  "))
+print(" Vamos contar as letrinhas?? ")
+texto=str(input("\n Digite o eu texto:  "))
+caractere_proc= str(input("Digite a letra procurada:  "))
 
-# final=contar_caracteres(texto,caractere_proc)
+final=contar_caracteres(texto,caractere_proc)
 
 #__________________________________________________________________
 # import random
