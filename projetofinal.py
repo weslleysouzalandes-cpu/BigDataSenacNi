@@ -1,8 +1,13 @@
 ## PROJETO UC1 ##
-
+ #### trabalho do projeto 1 realizado dia 13/11/2025
 import random
 import time
-lista_menu=[]
+                                                ###### LISTAS  ###########
+lista_menu=["bem vindo à lista"]
+
+lista_bebidas=["bem vindo à lista"]
+lista_sobremesas=["bem vindo à lista"]
+                                    ############# CARDAPIOS ###############
 menu_principal={
     1: "Sunomono - salada de pepino japonês",
     2:"Salada massao - tomate, escarola, repolho, batata palha e molho “secreto”", 
@@ -20,116 +25,112 @@ menu_bebidas={
     2:"Garrafa d'agua de 300 ml",
     3:"Agua saborizada gazeificada"}
 
-gerar_pedidos=random.randint(1,400)
+gerar_pedidos = random.randint(1,400)
 
 print( "BEM VINDO AO SUSHI - BAR")
 
 # ## SISTEMA DIZENDO QUAL É O SEU GARCON ###########################
 
-# mesas=[0,1,2,3,4,5,6]
+mesas=[0,1,2,3,4,5,6]
 
 
-# garcon_mesa={mesas[1]:"marcos",mesas[2]:"marcos",mesas[3]:"marcos", mesas[4]:"juliano",mesas[5]:"juliano", mesas[6]:"juliano"}
+garcon_mesa={mesas[1]:"marcos",mesas[2]:"marcos",mesas[3]:"marcos", mesas[4]:"juliano",mesas[5]:"juliano", mesas[6]:"juliano"}
 
-# #quem é o seu garcon?
-# nome=str(input("Por favor, digite o seu nome: "))
-# digite=int(input("digite o numero da sua mesa de 1 a 6:  "))
-# mesa_garcon= garcon_mesa[digite]
-# print(f"O srº(a) receberá o atendimento de {mesa_garcon}")
+#quem é o seu garcon?
+nome=str(input("Por favor, digite o seu nome: "))
+digite=int(input("digite o numero da sua mesa de 1 a 6:  "))
+mesa_garcon= garcon_mesa[digite]
+print(f"O srº(a) receberá o atendimento de {mesa_garcon}")
 
 # ########################################################
 
-# comprovante= random.randint(10000000,200000000000)
+comprovante= random.randint(10000000,200000000000)
 #                                     ######################### FUNÇÕES ####################
+# # # escolha_menu = str(input(f" srº(a) {nome}  deseja algum prato?\n Caso não deseje, por favor, digite 0 : "))
 
-
-
-# def menu_p(x):
-#     escolha_seu_prato= menu_principal[x]
-#     return escolha_seu_prato
-
-
-# def sobremesa(y):
-#     escolha_sua_sobremesa = menu_sobremesas[y]
-#     return escolha_sua_sobremesa
-
-
-# def bebidas(z):
-#     escolha_sua_bebida= menu_bebidas[z]
-#     return escolha_sua_bebida
+# # # print(escolha_menu_p(escolha_menu))
 
 
 
 #                                     #######  MONTANDO A LISTA DE JANTAR ######
-# print(f"Bem vindo(a) {nome} ! \n seu pedido é o número: {gerar_pedidos}, da mesa {digite} e seu atendimento será feito pelo {mesa_garcon}")
-# time.sleep(4)
+print(f"\nBem vindo(a) {nome} ! \n seu pedido é o número: {gerar_pedidos}, da mesa {digite} e seu atendimento será feito pelo {mesa_garcon}")
+time.sleep(4)
 
 
 
-## ESCOLHA DO MENU PRINCPAL
+# ## ESCOLHA DO MENU PRINCPAL
+
 import time
-
+print("\n"*3)
+print(f"\n Bem vindo(a) {nome} ao MENU PRINCIPAL ")
+escolha_menu = str(input(f" srº(a) {nome}  deseja algum prato?\n Se sim, pressione enter. Caso não deseje, por favor, digite 0 : "))
 
 def escolha_menu_p(escolha_menu):
-    while escolha_menu!= "0":
+    
+    while escolha_menu!= "00":
         if escolha_menu == "0":
-            desejo_final = str(input("Obrigado pela visita! \n caso deseje solicitar algo, por favor, digite 1: "))
+            desejo_final = str(input("\n Obrigado pela visita! \n caso deseje solicitar um prato, por favor, digite 1. " \
+            "Se não desejar um prato e seguir com o cardápio, digite 00: "))
             
             if desejo_final == "1":
-                print(escolha_menu(escolha_menu))  #  Como fazer para voltar ao inicio do pedido?
+                escolha_menu = str(input(f"\n srº(a)  deseja algum prato?\n Caso não deseje, por favor, digite 0 : "))
+
+                print(escolha_menu_p(escolha_menu))  #  Como fazer para voltar ao inicio do pedido?
             else:
-                print(f"Obrigado srº(a) {nome} pela visita, volte sempre!")
+                print(f"\n Tudo bem, então vamos seguir com nosso cardápio!")
                 break
         else:
-            print("Ótimo!\n Mostrarei as nossas opcoes de bebidas")
-            time.sleep(4)
+            print("Ótimo!\n Mostrarei as nossas opcoes de pratos principais")
+            time.sleep(5)
             print(menu_principal)
                 
-            escolha_prato_1= int(input("Por favor, digite a o numero do prato que deseja:   "))
+            escolha_prato_1= int(input("\n Por favor, digite a o numero do prato que deseja:   "))
             print("Carregando...")
             time.sleep(5)
             escolhas=menu_principal[escolha_prato_1]
             lista_menu.append(escolhas)
 
             print(f"prato escolhido: {escolhas} ")
-            final= str(input(f"Deseja mais uma bebida? Caso não deseje, digite 0"))
+            final= str(input(f"\n Deseja mais um prato? Se sim, digite sim. Caso não deseje, digite 0"))
             if final == "0":
-                return "Boa refeição"
+                
+                print(f"\n Seu(s) prato(s) escolhido foi: {lista_menu}")
+                return "\n Boa refeição"
                 break
 
-
-escolha_menu= str(input(f" Então, srº(a)  deseja algum prato?\n Caso não deseje, por favor, digite 0 : "))
-
 print(escolha_menu_p(escolha_menu))
-print(f"A sua(s) bebida(s) escolhida: {lista_menu}")
-
-      
-    
-
-
+print("\n"*3)
 
          
-## ESCOLHA DA BEBIDA
+                                                                ## ESCOLHA DA BEBIDA ####
 import time
+
+print("\n"*3)
+print(f"Bem vindo(a) {nome} ao cardápio de BEBIDAS")
+escolha_bebida= str(input(f"\n Então, srº(a) {nome} deseja alguma bebida?\n Caso não deseje, por favor, digite 0 : "))
 
 lista_bebidas=[]
 def escolha_bebida(escolha_bebida):
-    while escolha_bebida!= "0":
+    while escolha_bebida!= "00":
         if escolha_bebida == "0":
-            desejo_final = str(input("Obrigado pela visita! \n caso deseje solicitar algo, por favor, digite 1: "))
+            desejo_final = str(input("\n Obrigado pela visita! \n Se sim, pressione ENTER. caso deseje solicitar algo, por favor, digite 1." \
+            "Caso contrário, por favor, digite 00 : "))
             
             if desejo_final == "1":
-                print(escolha_menu_principal)  #  Como fazer para voltar ao inicio do pedido?
+                escolha_menu = str(input(f"\n srº(a)  deseja solicitar mais algum prato?\n Caso não deseje, por favor, digite 00 : "))
+                return print(escolha_menu_p(escolha_menu))
+                 #  Como fazer para voltar ao inicio do pedido?
             else:
-                print(f"Obrigado srº(a) {nome} pela visita, volte sempre!")
+                
+                return print(f"\n Tudo bem, vamos prosseguir com nosso cardápio. Mostrarei nossas sobremesas!")
                 break
         else:
-            print("Ótimo!\n Mostrarei as nossas opcoes de bebidas")
+            print("Ótimo!\n Mostrarei as nossas opções de bebidas")
             time.sleep(4)
             print(menu_bebidas)
                 
-            escolha_bebida_1= int(input("Por favor, digite a o numero da bebida que deseja 1,2 ou 3:   "))
-            print("Carregando...")
+            escolha_bebida_1= int(input("\n Por favor, digite a o numero da bebida que deseja 1,2 ou 3:   "))
+            print("\nCarregando...")
             time.sleep(5)
             escolhas=menu_bebidas[escolha_bebida_1]
             lista_bebidas.append(escolhas)
@@ -137,63 +138,273 @@ def escolha_bebida(escolha_bebida):
             print(f"Bebida escolhida: {escolhas} ")
             final= str(input(f"Deseja mais uma bebida? Caso não deseje, digite 0"))
             if final == "0":
+                print(f"A sua(s) bebida(s) escolhida: {lista_bebidas}")
+
                 return "Boa refeição"
                 break
          
+print(escolha_bebida(escolha_bebida))
+print("\n")
+print("\n"*3)
+                                                            ########
+                                                        #### ESCOLHA DA SOBREMESA ####
+
+import time
+print("\n"*3)
+print(f"\n Bem vindo(a) {nome} ao menu de Sobremesas")
+escolha_sobremesa = str(input(f" Então, srº(a) {nome} deseja alguma sobremesa?\n Caso não deseje, por favor, digite 0 : "))
+
+lista_sobremesas=[]
+def escolha_sobremesa(escolha_sobremesa):
+    while escolha_sobremesa!= "00":
+        if escolha_sobremesa == "0":
+            desejo_final = str(input(" Obrigado pela visita! \n caso deseje solicitar bebidas ou queira solicitar um outro prato, por favor, digite 1." \
+            "Caso contrário, por favor, digite 00 : "))
+            
+            if desejo_final == "1":
+                escolha_menu = str(input(f"\n srº(a)  deseja solicitar mais algum prato?\n Caso não deseje, por favor, digite 00 : "))
+                print(escolha_menu_p(escolha_menu))
+
+                escolha_bebidas= str(input(f"\n Então, srº(a)  deseja solicitar mais alguma bebida?\n Caso não deseje, por favor, digite 00 : "))
+                print(escolha_bebida(escolha_bebidas))
+                 #  Como fazer para voltar ao inicio do pedido?
+            else:
+                print(f"\n Tudo bem, vamos prosseguir com nosso cardápio. Mostrarei nossas sobremesas!")
+                break
+        else:
+            print("Ótimo!\n Mostrarei as nossas opções de sobremesas")
+            time.sleep(4)
+            print(menu_sobremesas)
+                
+            escolha_sobremesa_1= int(input("\n Por favor, digite a o numero da bebida que deseja 1,2 ou 3:   "))
+            print("\nCarregando...")
+            time.sleep(5)
+            escolhas=menu_sobremesas[escolha_sobremesa_1]
+            lista_sobremesas.append(escolhas)
+
+            print(f"\n Sobremesa escolhida: {escolhas} ")
+            final= str(input(f"\nDeseja mais uma sobremesa? Caso não deseje, digite 0. Caso deseje retornar, digite: return"))
+            if final == "0":
+                print(f"\nA sua(s) sobremesa(s) escolhida: {lista_sobremesas}")
+
+                return "Boa refeição"
+                break
+         
+print(escolha_sobremesa(escolha_sobremesa))
+print("\n")
+
+                                        ############# CONFIRMAÇÃO DO PEDIDO  #############
+
+print(" **** PEDIDOS SELECIONADOS **** ")
+print(f" Seu(s) prato(s)  são: {lista_menu}")
+print(f"Suas bebidas:  {lista_bebidas}")
+print(f"Sua(s) sobremesa(s): {lista_sobremesas}")
+
+confirmacao = str(input("O seu pedido está correto? Se sim digite y, caso contrário digite f"))
+if confirmacao == "f":
+    print("\nTudo bem, deseja retirar algo ou incluir? Caso deseja retirar, digite r, para adicionar digite a")
+    retirar=str(input("Digite qual sua escolha, por favor: "))
+    
+    if retirar == "r":
+        print("\nDe qual lista deseja retirar? ")
+        pergunta = str(input("Digite qual lista você deseja modificar: (m) para MENU PRINCIPAL, (b) para BEBIDAS e (s) para SOBREMESAS. Se não desejar digite (sair)"))
+        print("\n Tudo bem, digite quantos itens deseja retirar:")
+        quantidade= int(input("Por favor digite a quantidade: "))
+        if pergunta == "m":
+            for i in range (1,quantidade):
+                print(f"Você está retirando {i} de {quantidade}")
+                print("Tudo bem, digite o número que deseja retirar da sua lista, contando cada item a partir de 1")
+                print(lista_menu)
+                x=int(input("Digite o numero que deseja retirar"))
+                print(lista_menu.pop(x))
+            lista_final_menu=print(lista_menu)
+        elif pergunta == "b":
+            for i in range (1,quantidade):
+                print(f"Você está retirando {i} de {quantidade}")
+                print("Tudo bem, digite o número que deseja retirar da sua lista, contando cada item a partir de 1")
+                print(lista_bebidas)
+                x=int(input("Digite o numero que deseja retirar"))
+                print(lista_menu.pop(x))
+            print(lista_bebidas)
+        elif pergunta == "s":
+            for i in range (1,quantidade):
+                print(f"Você está retirando {i} de {quantidade}")
+                print("Tudo bem, digite o número que deseja retirar da sua lista, contando cada item a partir de 1")
+                print(lista_sobremesas)
+                x=int(input("Digite o numero que deseja retirar"))
+                print(lista_sobremesas.pop(x))
+            print(lista_sobremesas)
+        else:
+            print(" Tudo bem, vamos dar continuidade ao atendimento")
+    elif retirar == "a":
+
+        print("\nDe qual lista deseja adicionar? ")
+        pergunta = str(input("Digite qual lista você deseja modificar: (m) para MENU PRINCIPAL, (b) para BEBIDAS e (s) para SOBREMESAS. Se não desejar digite (sair)"))
+        print("\n Tudo bem, digite quantos itens deseja retirar:")
+        if pergunta == "m":
+            escolha_menu = str(input(f" srº(a) {nome}  deseja algum prato?\n Caso não deseje, por favor, digite 0 : "))
+
+            print(escolha_menu_p(escolha_menu))
+            
+            print(lista_menu)
+                        
+            print(lista_menu)
+        elif pergunta == "b":
+            escolha_bebida= str(input(f"\n Então, srº(a) {nome} deseja alguma bebida?\n Caso não deseje, por favor, digite 0 : "))
+            print(escolha_bebida(escolha_bebida))
+
+            print(lista_bebidas)
+        elif pergunta == "s":
+            escolha_sobremesa = str(input(f" Então, srº(a) {nome} deseja alguma sobremesa?\n Caso não deseje, por favor, digite 0 : "))
+
+            print(escolha_sobremesa(escolha_sobremesa))
+
+            print(lista_sobremesas)
+        else:
+            print("Tudo bem, vamos continuar com o atendimento")
+
+
+
+
+
+
+
+        
     
 
-escolha_bebidas= str(input(f" Então, srº(a)  deseja alguma bebida?\n Caso não deseje, por favor, digite 0 : "))
 
-print(escolha_bebida(escolha_bebidas))
-print(f"A sua(s) bebida(s) escolhida: {lista_bebidas}")
+                                                                ####
+elif confirmacao == "y":
+    print("Perfeito! Vamos continuar com nosso atendimento")
 
-print("Vamos para o pagamento? ")
+print("\n" *2 )
+
+print("\nVamos para o pagamento? ")
+
+
+                                        ###   GARCON RECEBE E ENTREGA O PEDIDO  ###
+
+print(f"\n Olá, garçon {garcon_mesa}. O seu pedido é da mesa {digite} e seu(s) cliente(s) {nome}")
+
+print(f"\n Caso confirme a mesa e o pedido digite (s), caso não confirme digite (n)")
+
+confirmacao_garcon = str(input("Você confirma o recebimento do pedido?"))
+def confirmacao(confirmacao_garcon):
+    if confirmacao_garcon == "s":
+        print("Ótimo. Mostrarei o tempo de preparo dos pedidos aos nossos clientes")
+        print("preparando pedido")
+        time.sleep(5)
+        print("Por favor dê a saída, pressione (s), do pedido para que nosso(s) cliente(s) possa confirmar o recebimento")
+        saida = str(input("Dê a saída por favor"))
+        if saida == "s":
+            resultado = print("Obrigado! Por favor, dirija-se à mesa e sirva nosso(s) cliente(s)")
+        else:
+            while repeticao != "s":
+                resultado = repeticao = str(input("Por favor, dê a saída no pedido"))
+                break
+
+
+    else:
+        print("Por favor, passe esta informação para outro garçon")
+
+    return resultado
+
+print(confirmacao(confirmacao_garcon))
+
+                                    ## CONFIRMAÇAO DA ENTREGA DO PEDIDO PELO CLIENTE     #    # 
+
+tempo_pedido = random.randint(1,10)
+print(f"Olá srº(a) {nome}, vejo que seu pedido demorará {tempo_pedido} minutos para estar pronto")
+time.sleep(3)
+
+print(f"Olá, {nome} novamente! vejo que seu pedido já saiu para entrega em sua mesa {digite} pelo garçon {garcon_mesa[digite]}")
+time.sleep(3)
+
+print("Por favor, me diga se o seu pedido foi entregue corretamente pelo garçon")
+entrega = str(input("Digite (s) para sim e (n) para não:  "))
+
+if entrega == "s":
+    print("Boa refeição! Caso precise, pode chamar um de nossos colaboradores.")
+
+else:
+    print("Sinto muito! Deseja fazer um novo pedido?")
+    pedido_novo = str(input("Caso deseje fazer um novo pedido, por favor digite sim, caso deseje outras informações solicite a gerência"))
+    if pedido_novo == "sim":
+        lista_bebidas.clear()
+        lista_menu.clear()
+        lista_sobremesas.clear()
+
+        escolha_menu = str(input(f" srº(a) {nome}  deseja algum prato?\n Caso não deseje, por favor, digite 0 : "))
+        print(escolha_menu_p(escolha_menu))
+
+        print("\n"*3)
+        print(f"Bem vindo(a) {nome} ao cardápio de BEBIDAS")
+        escolha_bebida= str(input(f"\n Então, srº(a) {nome} deseja alguma bebida?\n Caso não deseje, por favor, digite 0 : "))
+
+        print(escolha_bebida(escolha_bebida))
+
+        print("\n"*3)
+        print(f"\n Bem vindo(a) {nome} ao menu de Sobremesas")
+        escolha_sobremesa = str(input(f" Então, srº(a) {nome} deseja alguma sobremesa?\n Caso não deseje, por favor, digite 0 : "))
+        print(escolha_sobremesa(escolha_sobremesa))
+    else:
+        print("Tudo bem, caso você deseje falar com a gerência, por favor, solicite ao caixa")
+
+
+                                    ##   PAGAMENTO ##
+
+time.sleep(3)
+
+print(f"Olá, srº(a) {nome} a partir de agora você entrará na parte do pagamento")
+
+
 
 
 
 
 ##                                 ####### FORMA DE PAGAMENTO ###################
-# import time
-# import random
-# xyz=random.randint(62,93)
-# xyz1=random.randint(54,109)
-# xyz2=random.randint(98,451)
+import time
+import random
+xyz=random.randint(62,93)
+xyz1=random.randint(54,109)
+xyz2=random.randint(98,451)
                
-# def pagamento(x,y):
-#     if (x == "cartao" and y == "debito") or (x == "cartao" and y == "credito"):
-#         resultado = print(f"Por favor, insira ou aproxime o seu cartão de {y} ou aparelho na tela")
-#         time.sleep(5)
-#         resultado = print(f"Gerando comprovante...")
-#         time.sleep(5)
-#         resultado = print(f"Pagamento do pedido nº {gerar_pedidos} do(a) cliente {nome}  mesa {digite} efetuado com sucesso!\n Por favor,mostre o comprovante nª {comprovante} ao sair .")
-#         resultado = print(f"Obrigado pela visita, seja sempre bem vindo(a)!\n Volte Sempre!")
-#     elif x == "dinheiro":
-#         resultado = print(f"Por favor, dirija-se ao caixa\n nº do pedido: {gerar_pedidos}\n mesa: {digite}")
+def pagamento(x,y):
+    if (x == "cartao" and y == "debito") or (x == "cartao" and y == "credito"):
+        resultado = print(f"Por favor, insira ou aproxime o seu cartão de {y} ou aparelho na tela")
+        time.sleep(5)
+        resultado = print(f"Gerando comprovante...")
+        time.sleep(5)
+        resultado = print(f"Pagamento do pedido nº {gerar_pedidos} do(a) cliente {nome}  mesa {digite} efetuado com sucesso!\n Por favor,mostre o comprovante nª {comprovante} ao sair .")
+        resultado = print(f"Obrigado pela visita, seja sempre bem vindo(a)!\n Volte Sempre!")
+    elif x == "dinheiro":
+        resultado = print(f"Por favor, dirija-se ao caixa\n nº do pedido: {gerar_pedidos}\n mesa: {digite}")
 
-#     elif x == "qrcode" or x == "pix":
-#         print(f"O seu pagamento pode ser efetuado a partir desse código:\n {xyz}-{xyz1}-{xyz2}")
-#         time.sleep(5) 
-#         print("carregando...")
-#         time.sleep(5)
-#         return print(f"O numero do seu comprovante de pagamento é {comprovante}, por favor, apresente na saída")
-#     else:
-#         print("Por favor, digite uma opcao corretamente")
-#         resultado = pagamento_final
-#     return resultado
+    elif x == "qrcode" or x == "pix":
+        print(f"O seu pagamento pode ser efetuado a partir desse código:\n {xyz}-{xyz1}-{xyz2}")
+        time.sleep(5) 
+        print("carregando...")
+        time.sleep(5)
+        return print(f"O numero do seu comprovante de pagamento é {comprovante}, por favor, apresente na saída")
+    else:
+        print("Por favor, digite uma opcao corretamente")
+        resultado = pagamento_final
+    return resultado
 
-# pagamento_final= str(input(f" Por favor, srº(a) {nome} digite qual será a forma de pagamento: dinheiro, pix ou cartao?)"))
+pagamento_final= str(input(f" Por favor, srº(a) {nome} digite qual será a forma de pagamento: dinheiro, pix ou cartao?)"))
 
-# if pagamento_final == "cartao":
-#     forma_de_pagamento=str(input(f" Por favor, srº(a) {nome} digite qual sera a forma de pagamento: debito ou credito?"))
-#     print("Aguarde um momento")
-#     time.sleep(3)
-#     print("Carregando... ")
-#     time.sleep(5)
-#     pagamento(pagamento_final,forma_de_pagamento)
+if pagamento_final == "cartao":
+    forma_de_pagamento=str(input(f" Por favor, srº(a) {nome} digite qual sera a forma de pagamento: debito ou credito?"))
+    print("Aguarde um momento")
+    time.sleep(3)
+    print("Carregando... ")
+    time.sleep(5)
+    pagamento(pagamento_final,forma_de_pagamento)
 
-# else:
-#     print(pagamento(pagamento_final,0))
-#     print("Obrigado, volte sempre")
+else:
+    print(pagamento(pagamento_final,0))
+    time.sleep(3)
+    print("Obrigado, volte sempre")
 
 
 
