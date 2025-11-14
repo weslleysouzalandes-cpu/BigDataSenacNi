@@ -2,6 +2,8 @@
  #### trabalho do projeto 1 realizado dia 13/11/2025
 import random
 import time
+
+
                                                 ###### LISTAS  ###########
 lista_menu=["bem vindo à lista"]
 
@@ -25,9 +27,20 @@ menu_bebidas={
     2:"Garrafa d'agua de 300 ml",
     3:"Agua saborizada gazeificada"}
 
+precos_pratos = {"precos":"pratos",menu_principal[1]:10.00 ,menu_principal[2]: 12.00, menu_principal[3]: 20, menu_principal[4]: 25.00,
+menu_principal[5]: 25.00}
+
+precos_bebidas = {'precos':'bebidas',menu_bebidas[1]: 8.00, menu_bebidas[2]: 5.00, menu_bebidas[3]: 7.50}
+precos_sobremesas = {'precos':'sobremesas',menu_sobremesas[1]: 12.50, menu_sobremesas[2]: 10.90 , menu_sobremesas[3] : 25.00}
+
+lista_de_precos =[]
+
 gerar_pedidos = random.randint(1,400)
 
-print( "BEM VINDO AO SUSHI - BAR")
+
+
+
+print( "BEM VINDO ao restaurante Japonês Tanoshimi")
 
 # ## SISTEMA DIZENDO QUAL É O SEU GARCON ###########################
 
@@ -63,11 +76,11 @@ time.sleep(4)
 import time
 print("\n"*3)
 print(f"\n Bem vindo(a) {nome} ao MENU PRINCIPAL ")
-escolha_menu = str(input(f" srº(a) {nome}  deseja algum prato?\n Se sim, pressione enter. Caso não deseje, por favor, digite 0 : "))
+escolha_menu = str(input(f" srº(a) {nome}  deseja algum prato?\n Se sim, pressione ENTER. Caso não deseje, por favor, digite 0 : "))
 
 def escolha_menu_p(escolha_menu):
     
-    while escolha_menu!= "00":
+    while escolha_menu != "00":
         if escolha_menu == "0":
             desejo_final = str(input("\n Obrigado pela visita! \n caso deseje solicitar um prato, por favor, digite 1. " \
             "Se não desejar um prato e seguir com o cardápio, digite 00: "))
@@ -83,12 +96,17 @@ def escolha_menu_p(escolha_menu):
             print("Ótimo!\n Mostrarei as nossas opcoes de pratos principais")
             time.sleep(5)
             print(menu_principal)
-                
+            print("\n" *2)
+            print(precos_pratos) 
             escolha_prato_1= int(input("\n Por favor, digite a o numero do prato que deseja:   "))
+            
             print("Carregando...")
             time.sleep(5)
             escolhas=menu_principal[escolha_prato_1]
+            print(f"O preço da sua(s) bebida(s) é {precos_pratos[escolhas]}")
             lista_menu.append(escolhas)
+            lista_de_precos.append(precos_pratos[escolhas])
+            
 
             print(f"prato escolhido: {escolhas} ")
             final= str(input(f"\n Deseja mais um prato? Se sim, digite sim. Caso não deseje, digite 0"))
@@ -99,7 +117,7 @@ def escolha_menu_p(escolha_menu):
                 break
 
 print(escolha_menu_p(escolha_menu))
-print("\n"*3)
+print("\n"*2)
 
          
                                                                 ## ESCOLHA DA BEBIDA ####
@@ -107,33 +125,39 @@ import time
 
 print("\n"*3)
 print(f"Bem vindo(a) {nome} ao cardápio de BEBIDAS")
-escolha_bebida= str(input(f"\n Então, srº(a) {nome} deseja alguma bebida?\n Caso não deseje, por favor, digite 0 : "))
+escolha_bebida_inp= str(input(f"\n Então, srº(a) {nome} deseja alguma bebida?Se sim, pressione ENTER. Caso não deseje, por favor, digite 0, caso nao deseje solicitar outro prato digite 00 : "))
 
 lista_bebidas=[]
-def escolha_bebida(escolha_bebida):
-    while escolha_bebida!= "00":
-        if escolha_bebida == "0":
-            desejo_final = str(input("\n Obrigado pela visita! \n Se sim, pressione ENTER. caso deseje solicitar algo, por favor, digite 1." \
+def escolha_bebida(escolha_bebida_inp):
+    while escolha_bebida_inp != "00":
+        if escolha_bebida_inp == "0":
+            desejo_final = str(input("Obrigado pela visita. Caso deseje solicitar mais um prato, por favor, digite 1." \
             "Caso contrário, por favor, digite 00 : "))
             
             if desejo_final == "1":
                 escolha_menu = str(input(f"\n srº(a)  deseja solicitar mais algum prato?\n Caso não deseje, por favor, digite 00 : "))
-                return print(escolha_menu_p(escolha_menu))
+                print(escolha_menu_p(escolha_menu))
                  #  Como fazer para voltar ao inicio do pedido?
             else:
                 
-                return print(f"\n Tudo bem, vamos prosseguir com nosso cardápio. Mostrarei nossas sobremesas!")
+                print(f"\n Tudo bem, vamos prosseguir com nosso cardápio. Mostrarei nossas sobremesas!")
                 break
         else:
             print("Ótimo!\n Mostrarei as nossas opções de bebidas")
             time.sleep(4)
             print(menu_bebidas)
-                
+            print("\n"*2)
+            print(precos_bebidas)    
             escolha_bebida_1= int(input("\n Por favor, digite a o numero da bebida que deseja 1,2 ou 3:   "))
+            
             print("\nCarregando...")
             time.sleep(5)
             escolhas=menu_bebidas[escolha_bebida_1]
+            print(f"O preço da sua(s) bebida(s) é {precos_bebidas[escolhas]}")
+          
             lista_bebidas.append(escolhas)
+            lista_de_precos.append(precos_bebidas[escolhas])
+            
 
             print(f"Bebida escolhida: {escolhas} ")
             final= str(input(f"Deseja mais uma bebida? Caso não deseje, digite 0"))
@@ -143,7 +167,7 @@ def escolha_bebida(escolha_bebida):
                 return "Boa refeição"
                 break
          
-print(escolha_bebida(escolha_bebida))
+print(escolha_bebida(escolha_bebida_inp))
 print("\n")
 print("\n"*3)
                                                             ########
@@ -152,14 +176,14 @@ print("\n"*3)
 import time
 print("\n"*3)
 print(f"\n Bem vindo(a) {nome} ao menu de Sobremesas")
-escolha_sobremesa = str(input(f" Então, srº(a) {nome} deseja alguma sobremesa?\n Caso não deseje, por favor, digite 0 : "))
+escolha_sobremesa_inp = str(input(f" Então, srº(a) {nome} deseja alguma sobremesa?\n Caso não deseje, por favor, digite 0 : "))
 
 lista_sobremesas=[]
-def escolha_sobremesa(escolha_sobremesa):
-    while escolha_sobremesa!= "00":
-        if escolha_sobremesa == "0":
+def escolha_sobremesa(escolha_sobremesa_inp):
+    while escolha_sobremesa_inp != "00":
+        if escolha_sobremesa_inp == "0":
             desejo_final = str(input(" Obrigado pela visita! \n caso deseje solicitar bebidas ou queira solicitar um outro prato, por favor, digite 1." \
-            "Caso contrário, por favor, digite 00 : "))
+            "Caso não deseje nem pratos e nem bebidas, por favor, digite 00 : "))
             
             if desejo_final == "1":
                 escolha_menu = str(input(f"\n srº(a)  deseja solicitar mais algum prato?\n Caso não deseje, por favor, digite 00 : "))
@@ -175,14 +199,20 @@ def escolha_sobremesa(escolha_sobremesa):
             print("Ótimo!\n Mostrarei as nossas opções de sobremesas")
             time.sleep(4)
             print(menu_sobremesas)
-                
+            print("\n"*2)
+            print(precos_sobremesas)    
             escolha_sobremesa_1= int(input("\n Por favor, digite a o numero da bebida que deseja 1,2 ou 3:   "))
+           
             print("\nCarregando...")
             time.sleep(5)
             escolhas=menu_sobremesas[escolha_sobremesa_1]
+            
             lista_sobremesas.append(escolhas)
+            
 
             print(f"\n Sobremesa escolhida: {escolhas} ")
+            print(f"O preço da sua sobremesa é {precos_sobremesas[escolhas]}")
+            lista_de_precos.append(precos_sobremesas[escolhas])
             final= str(input(f"\nDeseja mais uma sobremesa? Caso não deseje, digite 0. Caso deseje retornar, digite: return"))
             if final == "0":
                 print(f"\nA sua(s) sobremesa(s) escolhida: {lista_sobremesas}")
@@ -193,12 +223,14 @@ def escolha_sobremesa(escolha_sobremesa):
 print(escolha_sobremesa(escolha_sobremesa))
 print("\n")
 
+
                                         ############# CONFIRMAÇÃO DO PEDIDO  #############
 
-print(" **** PEDIDOS SELECIONADOS **** ")
-print(f" Seu(s) prato(s)  são: {lista_menu}")
-print(f"Suas bebidas:  {lista_bebidas}")
-print(f"Sua(s) sobremesa(s): {lista_sobremesas}")
+print("\n **** PEDIDOS SELECIONADOS **** ")
+print(f"\n Seu(s) prato(s)  são: {lista_menu}")
+print(f"\nSuas bebidas:  {lista_bebidas}")
+print(f"\nSua(s) sobremesa(s): {lista_sobremesas}")
+print(f"\nO preço dos seus itens é: {lista_de_precos}")
 
 confirmacao = str(input("O seu pedido está correto? Se sim digite y, caso contrário digite f"))
 if confirmacao == "f":
@@ -356,6 +388,7 @@ else:
 time.sleep(3)
 
 print(f"Olá, srº(a) {nome} a partir de agora você entrará na parte do pagamento")
+confirma = str(input("Podemos continuar com o pagamento? Se sim, digite y, ou n para não"))
 
 
 
@@ -365,10 +398,11 @@ print(f"Olá, srº(a) {nome} a partir de agora você entrará na parte do pagame
 ##                                 ####### FORMA DE PAGAMENTO ###################
 import time
 import random
+
 xyz=random.randint(62,93)
 xyz1=random.randint(54,109)
 xyz2=random.randint(98,451)
-               
+
 def pagamento(x,y):
     if (x == "cartao" and y == "debito") or (x == "cartao" and y == "credito"):
         resultado = print(f"Por favor, insira ou aproxime o seu cartão de {y} ou aparelho na tela")
@@ -390,6 +424,12 @@ def pagamento(x,y):
         print("Por favor, digite uma opcao corretamente")
         resultado = pagamento_final
     return resultado
+
+
+    
+print(f"\n O preço dos seus itens é: {lista_de_precos}")
+
+
 
 pagamento_final= str(input(f" Por favor, srº(a) {nome} digite qual será a forma de pagamento: dinheiro, pix ou cartao?)"))
 

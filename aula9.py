@@ -96,3 +96,8 @@ except Exception as e:
     print(f"Ocorreu um erro ao ler o arquivo CSV: {e}")
 finally:
     print("Leitura de CSV concluída.\n")
+
+import projetofinal
+
+print(projetofinal)
+
