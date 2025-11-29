@@ -1,4 +1,5 @@
 
+import pandas as pd
 import mysql.connector
 
 
@@ -28,7 +29,7 @@ conexao.close()
 
 
 ####
-
+import pandas as pd
 import mysql.connector
 def obter_dados_do_banco(query):
  try:
@@ -57,3 +58,25 @@ dados_filtrados = obter_dados_do_banco(query_produtos)
 if dados_filtrados:
     for produto in dados_filtrados:
         print(produto)
+
+
+
+query_produtos = "SELECT * FROM produtos WHERE preco > 100"
+dados_filtrados = obter_dados_do_banco(query_produtos)
+
+if dados_filtrados:
+    for produto in dados_filtrados:
+        print(produto)
+
+######################
+
+
+query_clientes = "SELECT * FROM clientes"
+df_clientes = pd.DataFrame(obter_dados_do_banco(query_clientes), columns=['id_cliente', 'nome', 'email'])
+print(df_clientes)
+
+df_pedidos = pd.read_csv('vendas_pedidos(in).csv')
+print(df_pedidos)
+
+# Relacionando os DataFrames pela coluna 'id_cliente'
+df_relacionado = pd.merge(df_clientes, df_pedidos, on='id_cliente', how='inner')
